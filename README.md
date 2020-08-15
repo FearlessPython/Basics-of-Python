@@ -3,7 +3,7 @@
 This is a repository in which you can learn about the **Basics of Python** programming. There are different Python topics in different files, which are also listed below. Clicking the links below will take you to the desired topic.
 
 ## Topics
-1. [Numbers (Integers, Floats, Complex Numbers)](./Data_Type_1(Numbers).ipynb)
+1. [Numbers (Integers, Floats, Complex Numbers)](./Data_Type_1(Numbers - Integer, Float, Complex).ipynb)
 2. [Booleans](./Data_Type_2(Boolean).ipynb)
 3. [String](./Data_Type_3(String).ipynb)
 4. [List and Tuple](./Data_Type_4(List%2C%20Tuples).ipynb)
