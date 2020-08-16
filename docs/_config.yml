@@ -1,4 +1,4 @@
 #Jekyll configuration
 name: FearlessPython
 url: "https://github.com/FearlessPython/Basics-of-Python/"
-markdown: kramdown
+markdown: GFM # GitHub Flavored Markdown
