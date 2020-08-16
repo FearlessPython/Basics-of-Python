@@ -1,4 +1,6 @@
 #Jekyll configuration
 name: FearlessPython
-url: "https://github.com/FearlessPython/Basics-of-Python/"
+description: Tutorials about Basics of Python Programming, by FearlessPython.
+baseurl: "/Basics-of-Python"
+url: "https://github.com/FearlessPython"
 markdown: GFM # GitHub Flavored Markdown
