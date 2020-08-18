@@ -1,7 +1,13 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: home
+---
 <!-- 
 This 'index.md' and related files controls the project website at https://fearlesspython.github.io/Basics-of-Python/ and it is different from README.md, although they look same.
 -->
-# Basics-of-Python
+# **FearlessPython**/Basics-of-Python
 > Basics of Python by [FearlessPython](https://github.com/FearlessPython "Visit FearlessPython on GitHub").
 
 ## About this project
@@ -9,12 +15,14 @@ This is a website in which you can learn about the **Basics of Python** programm
 
 ## Topics
 1. [Numbers (Integers, Floats, Complex Numbers)](./Data_Type_1(Numbers%20-%20Integer%2C%20Float%2C%20Complex).html)
+2. [Numbers](./Data_Type_1(Numbers%20-%20Integer%2C%20Float%2C%20Complex)/)
 2. [Booleans](./Data_Type_2(Boolean).html)
 3. [String](./Data_Type_3(String).html)
 4. [List and Tuple](./Data_Type_4(List%2C%20Tuples).html)
 5. [Dictionary](./Data_Type_5(Dictionary).html)
 6. [Input and Output](./INPUT_AND_OUTPUT.html)
 7. [Loops](./Loops.html)
+7. [Demo](./demo/)
 
 The work on this project is still active, and it is under continuous development.
 
