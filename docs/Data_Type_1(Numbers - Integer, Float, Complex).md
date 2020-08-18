@@ -1,17 +1,17 @@
 ---
 mathjax: true
 layout: default
-title: This is a title
+title:
 ---
 
 # Numbers - Integer, Float, Complex
-
+ 
 Before learning about the integer, float, complex data-type, we will first learn something about variables.
-
+ 
 ## Variable
-
+ 
 ### What is a variable ?
-
+ 
 A **variable** is that which stores values in a fixed memory location. The value may change dynamically. Whenever we accesse that variable, it returns the present value stored.
 
 ### Assignment of values to variables :
@@ -27,10 +27,13 @@ $$
 
 The last equation is not valid, because actually, $x \ne x + 1$. But, in Python,
 
+$$
 \begin{align*}
 x &= 10 \\
 x &= x + 1
 \end{align*}
+$$
+
 Everything is valid here (and these are not equations). We are just assigning a value at each line. Python is an *interpreted* language, which means, Python executed code line by line. In the first line, `x` is assigned the value of integer `10`. In the next line, the new value of `x` is overwritten and assigned to 11 (See it as $x = 10+1$). (Whereas there are some language, like C++, which are *compiler* language, where whole block of code is executed, rather than line by line execution).
 
 2. Single variable can take different values at different points of the program. The present value of variable will be the last assigned value. As seen in the above example, the old value of `x` (10) was overwritten by the new value (11), and the old value is lost.
@@ -524,11 +527,13 @@ print(bin(i))   # printing binary number of i using bin() function
 
 The prefix `0b` represents that the result is a binary string. Hence Binary of 17 is 10001.
 
+$$
 \begin{align*}
 (10001)_{2} &= (1 \times 2^{4}) + (0 \times 2^{3}) + (0 \times 2^{2}) + (0 \times 2^{1}) + (1 \times 2^{0}) \\
 (10001)_{2} &= 16 + 0 + 0 + 0 + 1 \\
 (10001)_{2} &= (17)_{10}
 \end{align*}
+$$
 
 
 ```python
@@ -548,11 +553,13 @@ print(oct(i))    # converting to octal number using oct() function
 
 The prefix `0o` represents that the result is an octal string. Hence Octal of 17 is 21.
 
+$$
 \begin{align*}
 (21)_{8} &= (2 \times 8^{1}) + (1 \times 8^{0}) \\
 (21)_{8} &= 16 + 1 \\
 (21)_{8} &= (17)_{10}
 \end{align*}
+$$
 
 
 ```python
@@ -564,11 +571,13 @@ print(hex(i))   # converting to Hexadecimal number using hex() function
 
 The prefix `0x` represents that the result is a Hexadecimal string. Hence the Hexadecimal of 17 is 11.
 
+$$
 \begin{align*}
 (11)_{16} &= (1 \times 16^{1}) + (1 \times 16^{0}) \\
 (11)_{16} &= 16 + 1\\
 (11)_{16} &= (17)_{10}
 \end{align*}
+$$
 
 ### 2. Float
 
