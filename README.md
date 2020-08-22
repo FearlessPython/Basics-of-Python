@@ -14,6 +14,7 @@ This is a repository in which you can learn about the **Basics of Python** progr
 The work on this project is still active, and it is under continuous development.
 
 ## Contributing to this project
+### Contributing to Jupyter Notebooks
 You too can contribute to this project. If there are any issues, start an issue on GitHub. Or you can edit or add content yourself.
 
 You can fork or download this project from [here](https://github.com/FearlessPython/Basics-of-Python/archive/master.zip), extract it, and start contributing, or you can clone this project in your computer.
@@ -21,5 +22,8 @@ You can fork or download this project from [here](https://github.com/FearlessPyt
 git clone https://github.com/FearlessPython/Basics-of-Python.git
 ```
 Start working on this project and do a pull request. More small contributions are preferred than a one huge pull request.
+
+### Contributing to the Website
+The [website](https://fearlesspython.github.io/Basics-of-Python) is powered by Jekyll and the website files are stored in the [docs](https://github.com/FearlessPython/Basics-of-Python/tree/master/docs) folder of the root directory in GitHub.
 
 Made with ❤️️ for everybody.
