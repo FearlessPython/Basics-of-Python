@@ -1,0 +1,57 @@
+---
+layout: page
+title: About FearlessPython
+permalink: /about/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <strong>FearlessPython</strong> was formed in 2020, which aims to provide different types of Python tutorials. 
+    Its content is open-sourced, anyone can contribute for the development of FearlessPython. 
+    Here, dynamic statistics are available regarding this repository in GitHub.
+
+    <div id="statistics">
+        <h3 id="heading"></h3>
+        <ul id="stats"></ul>
+        <ol id="contributors"></ol>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+				method:'GET',
+				url: 'https://api.github.com/repos/FearlessPython/Basics-of-Python',
+				dataType: 'json'
+			}).done(function(data){
+				console.log(data);
+				$.map(data, function(repo, i){
+					$('h3#heading').append(repo.downloads_url);
+				});
+			});
+        });
+    </script>
+
+</body>
+
+
+<!-- {% comment %}
+This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+
+You can find the source code for Minima at GitHub:
+[jekyll][jekyll-organization] /
+[minima](https://github.com/jekyll/minima)
+
+You can find the source code for Jekyll at GitHub:
+[jekyll][jekyll-organization] /
+[jekyll](https://github.com/jekyll/jekyll)
+
+
+[jekyll-organization]: https://github.com/jekyll
+{% endcomment %} -->
+</html>
