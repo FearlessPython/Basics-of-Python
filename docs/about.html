@@ -19,21 +19,112 @@ permalink: /about/
     <div id="statistics">
         <h3 id="heading"></h3>
         <ul id="stats"></ul>
-        <ol id="contributors"></ol>
+        <h4>Contributors</h4><hr>
+        <ol id="contributors">
+            <!-- <ul id="users"></ul> -->
+        </ol>
     </div>
 
     <script>
+        const isoToDateString = iso_time => {
+            var arr = [];
+            var filt_time = "";
+            for (var i=0; i < iso_time.length; i++)    {
+                if(iso_time[i] === "-" || iso_time[i] === "T" || iso_time[i] === "Z" || iso_time[i] === ':'){                    
+                    arr.push(filt_time);
+                    filt_time = "";
+                } else  {
+                    filt_time += iso_time[i];
+                }
+            }
+            const event = new Date(
+                parseInt(arr[0]), parseInt(arr[1]), parseInt(arr[2]), 
+                parseInt(arr[3]), parseInt(arr[4]), parseInt(arr[5])
+                );
+            return (event.toString());
+        }
+
         $(document).ready(function(){
             $.ajax({
-				method:'GET',
 				url: 'https://api.github.com/repos/FearlessPython/Basics-of-Python',
-				dataType: 'json'
-			}).done(function(data){
-				console.log(data);
-				$.map(data, function(repo, i){
-					$('h3#heading').append(repo.downloads_url);
-				});
+			}).done(function(repo){
+				$('#heading').html(`${repo.name}<hr>`);
+                $('#stats').html(`
+                    <strong>Stars</strong>: ${repo.stargazers_count} <br>
+                    <strong>Watchers</strong>: ${repo.watchers_count} <br>
+                    <strong>Language</strong>: ${repo.language} <br>
+                    <strong>Open Issues</strong>: ${repo.open_issues_count} <br>
+                    <strong>License</strong>: ${repo.license.name}<br>
+                    <strong>Created</strong>: ${isoToDateString(repo.created_at)}<br>
+                    <strong>Updated</strong>: ${isoToDateString(repo.updated_at)}
+                `);
 			});
+
+
+            $.ajax({
+                method: "GET",
+                url: "https://api.github.com/repos/FearlessPython/Basics-of-Python/contributors",
+                dataType: "json"
+            }).done(function(data){
+                // console.log(data);
+                // var contrb = [];
+                for (var index = 0; index < 3; index++){
+                    console.log(data[index].url);
+                    // console.log(data.url);
+                    $.ajax({
+                        url: data[index].url
+                    }).done(function(individual_contributor){
+                        $('ul#users').append(`
+                            <li><strong>${individual_contributor.name}</strong></li>
+                            <li><strong>Bio:</strong> ${individual_contributor.bio}</li>
+                            <li><strong>Public Repos:</strong> ${individual_contributor.public_repos}</li>
+                            <li><strong>Followers:</strong> ${individual_contributor.followers}</li>
+                            <li><strong>Following:</strong> ${individual_contributor.following}</li>
+                        `);
+                    })
+                }
+                // console.log(data[0].url);
+                // // console.log(data.url);
+                // $.ajax({
+                //     url: data.url[0]
+                // }).done(function(individual_contributor){
+                //     $('ul#users').html(`
+                //         <li><strong>${individual_contributor.name}</strong></li>
+                //         <li><strong>Bio:</strong> ${individual_contributor.bio}</li>
+                //         <li><strong>Public Repos:</strong> ${individual_contributor.public_repos}</li>
+                //         <li><strong>Followers:</strong> ${individual_contributor.followers}</li>
+                //         <li><strong>Following:</strong> ${individual_contributor.following}</li>
+                //     `);
+                // })
+
+
+				$.map(data, function(contributor, i){
+                    // contrb.push(contributor);
+					$('ol#contributors').append(`
+                    <li><a href="${contributor.html_url}" target="_blank">${contributor.login}</a></li>
+
+                    <img src = "${contributor.avatar_url}" style = "float: right;" width=10%>   
+                    <ul id="users"></ul>
+                    `);
+				});
+            });
+
+            // for (var user of contrb) {
+            //     console.log("user:", user)
+            //     $.ajax({
+            //         url: user.url
+            //     }).done(function(user){
+            //         $('ul#users').html(`
+            //             <li><strong>${user.name}</strong></li>
+            //             <li><strong>Bio:</strong> ${user.bio}</li>
+            //             <li><strong>Public Repos:</strong> ${user.public_repos}</li>
+            //             <li><strong>Followers:</strong> ${user.followers}</li>
+            //             <li><strong>Following:</strong> ${user.following}</li>
+            //         `)
+            //     })
+
+            // }
+
         });
     </script>
 
@@ -54,4 +145,15 @@ You can find the source code for Jekyll at GitHub:
 
 [jekyll-organization]: https://github.com/jekyll
 {% endcomment %} -->
+<!-- $.ajax({
+    url: contributor.url,
+}).done(function(user){
+    $('ul#users').html(`
+            <li><strong>${user.name}</strong></li>
+            <li><strong>Bio:</strong> ${user.bio}</li>
+            <li><strong>Public Repos:</strong> ${user.public_repos}</li>
+            <li><strong>Followers:</strong> ${user.followers}</li>
+            <li><strong>Following:</strong> ${user.following}</li>
+    `)
+}) -->
 </html>
