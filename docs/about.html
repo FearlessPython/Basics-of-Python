@@ -1,0 +1,143 @@
+---
+layout: page
+title: About FearlessPython
+permalink: /about/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <style>
+        .users {
+            min-width: 90px;
+            min-height: 90px;
+            margin-bottom: 0.5em;
+        }
+        .avatar {
+            float: right;
+            width: 10%;
+        }
+        .login {
+            margin-top: 0.5em;
+            font-size: 1.1em;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <strong>FearlessPython</strong> was formed in 2020, which aims to provide different types of Python tutorials. 
+    Its content is open-sourced, anyone can contribute for the development of FearlessPython. 
+    Here, dynamic statistics are available regarding this repository in GitHub.
+
+    <div id="statistics">
+        <h3 id="heading"></h3>
+        <ul id="stats"></ul>
+        <h4>Contributors</h4><hr>
+        <ol id="contributors">
+            <!-- <ul id="users"></ul> -->
+        </ol>
+    </div>
+
+    <script>
+        const isoToDateString = iso_time => {
+            var arr = [];
+            var filt_time = "";
+            for (var i=0; i < iso_time.length; i++)    {
+                if(iso_time[i] === "-" || iso_time[i] === "T" || iso_time[i] === "Z" || iso_time[i] === ':'){                    
+                    arr.push(filt_time);
+                    filt_time = "";
+                } else  {
+                    filt_time += iso_time[i];
+                }
+            }
+            const event = new Date(
+                parseInt(arr[0]), parseInt(arr[1]), parseInt(arr[2]), 
+                parseInt(arr[3]), parseInt(arr[4]), parseInt(arr[5])
+                );
+            return (event.toString());
+        }
+
+        const repoUrl = 'https://api.github.com/repos/FearlessPython/Basics-of-Python';
+
+        function repoStatsHtml(repo) {
+        return `
+            <strong>Stars</strong>: ${repo.stargazers_count} <br>
+            <strong>Watchers</strong>: ${repo.watchers_count} <br>
+            <strong>Language</strong>: ${repo.language} <br>
+            <strong>Open Issues</strong>: ${repo.open_issues_count} <br>
+            <strong>License</strong>: ${repo.license.name}<br>
+            <strong>Created</strong>: ${isoToDateString(repo.created_at)}<br>
+            <strong>Updated</strong>: ${isoToDateString(repo.updated_at)}
+            `;
+        }
+
+        function contributorDetailsHtml(individual_contributor) {
+        return `
+            <li><strong>${individual_contributor.name}</strong></li>
+            <li><strong>Bio:</strong> ${individual_contributor.bio}</li>
+            <li><strong>Public Repos:</strong> ${individual_contributor.public_repos}</li>
+            <li><strong>Followers:</strong> ${individual_contributor.followers}</li>
+            <li><strong>Following:</strong> ${individual_contributor.following}</li>
+                                `;
+        }
+
+        function userHeaderHtml(contributor) {
+        return `
+            <li><a href="${contributor.html_url}" class="login" target="_blank">${contributor.login}</a></li>
+            <img src = "${contributor.avatar_url}" class="avatar">   
+                            `;
+        }
+        $(document).ready(async function() {
+        $.getJSON(repoUrl).done(function(repo) {
+            $('#heading').html(`${repo.name}<hr>`);
+            $('#stats').html(repoStatsHtml(repo));
+        });
+        let contributors = await $.getJSON(`${repoUrl}/contributors`);
+
+        for (let contributor of contributors) {
+            let userDetailsElement = $('<ul class="users"></ul>');
+            $('ol#contributors')
+            .append(userHeaderHtml(contributor))
+            .append(userDetailsElement);
+            $.getJSON(contributor.url).then(individual_contributor => {
+            userDetailsElement.append(
+                contributorDetailsHtml(individual_contributor)
+            );
+            });
+        }
+
+        });
+    </script>
+
+</body>
+
+
+<!-- {% comment %}
+This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+
+You can find the source code for Minima at GitHub:
+[jekyll][jekyll-organization] /
+[minima](https://github.com/jekyll/minima)
+
+You can find the source code for Jekyll at GitHub:
+[jekyll][jekyll-organization] /
+[jekyll](https://github.com/jekyll/jekyll)
+
+
+[jekyll-organization]: https://github.com/jekyll
+{% endcomment %} -->
+<!-- $.ajax({
+    url: contributor.url,
+}).done(function(user){
+    $('ul#users').html(`
+            <li><strong>${user.name}</strong></li>
+            <li><strong>Bio:</strong> ${user.bio}</li>
+            <li><strong>Public Repos:</strong> ${user.public_repos}</li>
+            <li><strong>Followers:</strong> ${user.followers}</li>
+            <li><strong>Following:</strong> ${user.following}</li>
+    `)
+}) -->
+</html>
