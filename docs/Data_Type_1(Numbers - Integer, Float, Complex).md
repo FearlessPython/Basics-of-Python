@@ -1,6 +1,7 @@
 ---
 mathjax: true
-layout: default
+layout: repo-code
+comments: true
 title:
 ---
 
