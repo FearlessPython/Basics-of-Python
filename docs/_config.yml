@@ -28,6 +28,8 @@ url: "https://github.com/FearlessPython" # the base hostname & protocol for your
 markdown: kramdown # GFM # GitHub Flavored Markdown
 twitter_username: # jekyllrb
 github_username:  FearlessPython # jekyll
+disqus:
+  shortname: fearlesspython
 
 # Build settings
 theme: minima
