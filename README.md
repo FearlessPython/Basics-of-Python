@@ -4,12 +4,13 @@ This is a repository in which you can learn about the **Basics of Python** progr
 
 ## Topics
 1. [Numbers (Integers, Floats, Complex Numbers)](./Data_Type_1(Numbers%20-%20Integer%2C%20Float%2C%20Complex).ipynb)
-2. [Booleans](./Data_Type_2(Boolean).ipynb)
-3. [String](./Data_Type_3(String).ipynb)
-4. [List and Tuple](./Data_Type_4(List%2C%20Tuples).ipynb)
-5. [Dictionary](./Data_Type_5(Dictionary).ipynb)
-6. [Input and Output](./INPUT_AND_OUTPUT.ipynb)
-7. [Loops](./Loops.ipynb)
+1. [Booleans](./Data_Type_2(Boolean).ipynb)
+1. [String](./Data_Type_3(String).ipynb)
+1. [List and Tuple](./Data_Type_4(List%2C%20Tuples).ipynb)
+1. [Dictionary](./Data_Type_5(Dictionary).ipynb)
+1. [Set](./Data_Type_6(Set).ipynb)
+1. [Input and Output](./INPUT_AND_OUTPUT.ipynb)
+1. [Loops](./Loops.ipynb)
 
 The work on this project is still active, and it is under continuous development.
 
