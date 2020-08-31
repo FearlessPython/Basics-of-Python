@@ -2,7 +2,8 @@
 mathjax: true
 layout: repo-code
 comments: true
-title:
+title: Loops
+permalink: /Loops/
 ---
 
 # Loops

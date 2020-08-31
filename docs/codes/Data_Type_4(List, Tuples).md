@@ -2,7 +2,8 @@
 mathjax: true
 layout: repo-code
 comments: true
-title:
+title: List and Tuples
+permalink: /List-and-Tuples/
 ---
 
 # List and Tuple

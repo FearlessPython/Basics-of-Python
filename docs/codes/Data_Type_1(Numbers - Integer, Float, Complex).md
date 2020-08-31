@@ -2,7 +2,8 @@
 mathjax: true
 layout: repo-code
 comments: true
-title:
+title: Number-Integer, Float and Complex
+permalink: /Number-Integer-Float-and-Complex/
 ---
 
 # Numbers - Integer, Float, Complex

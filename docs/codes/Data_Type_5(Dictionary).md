@@ -2,7 +2,8 @@
 mathjax: true
 layout: repo-code
 comments: true
-title:
+title: Dictionary
+permalink: /Dictionary/
 ---
 
 # Dictionary

@@ -14,14 +14,14 @@ This 'index.md' and related files controls the project website at https://fearle
 This is a website in which you can learn about the **Basics of Python** programming. There are different Python topics in different files, which are also listed below. Clicking the links below will take you to the desired topic.
 
 ## Topics
-1. [Numbers (Integers, Floats, Complex Numbers)](./codes/Data_Type_1(Numbers%20-%20Integer%2C%20Float%2C%20Complex))
-1. [Booleans](./codes/Data_Type_2(Boolean))
-1. [String](./codes/Data_Type_3(String))
-1. [List and Tuple](./codes/Data_Type_4(List%2C%20Tuples))
-1. [Dictionary](./codes/Data_Type_5(Dictionary))
-1. [Set](./codes/Data_Type_6(Set))
-1. [Input and Output](./codes/INPUT_AND_OUTPUT)
-1. [Loops](./codes/Loops)
+1. [Numbers (Integers, Floats, Complex Numbers)](./Number-Integer-Float-and-Complex/)
+1. [Booleans](./Boolean/)
+1. [String](./String/)
+1. [List and Tuple](./List-and-Tuples/)
+1. [Dictionary](./Dictionary/)
+1. [Set](./Set/)
+1. [Input and Output](./Input-and-Output/)
+1. [Loops](./Loops/)
 
 The work on this project is still active, and it is under continuous development.
 

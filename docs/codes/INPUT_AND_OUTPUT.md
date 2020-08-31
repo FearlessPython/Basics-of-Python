@@ -2,7 +2,8 @@
 mathjax: true
 layout: repo-code
 comments: true
-title:
+title: Input and Output
+permalink: /Input-and-Output/
 ---
 
 # Input and Output
@@ -31,10 +32,10 @@ print(A)
 
 We cannot show in this Jupyter notebook that how the Python interpreter/shell waits for the user to enter an input. But we have included the image below, how it looks *before* entering the input and *after* entering the input.
 
-![How computer waits for input of user](Images/Input_1.PNG)
+![How computer waits for input of user](../Images/Input_1.PNG)
 >How computer waits for the input of the user.
 
-![Entering the desired input](Images/Input_2.PNG)
+![Entering the desired input](../Images/Input_2.PNG)
 >How it looks after typing the input, but not pressing "Enter" yet.
 
 In the previous example we have a input assigned to a variable `A` , and `print(A)` displays the assigned value of `A`. Here, two `"Hello world"` is printed because it is Jupyter notebook, and it is like a Python shell. It prints the 1st line, i.e., `A`, and then prints the value of `A` due to `print(A)`. But if you try out this in an editor, and execute your program, then you should see only one output, one and only due to `print(A)`.
