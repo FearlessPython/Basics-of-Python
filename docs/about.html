@@ -63,51 +63,52 @@ permalink: /about/
         const repoUrl = 'https://api.github.com/repos/FearlessPython/Basics-of-Python';
 
         function repoStatsHtml(repo) {
-        return `
-            <strong>Stars</strong>: ${repo.stargazers_count} <br>
-            <strong>Watchers</strong>: ${repo.watchers_count} <br>
-            <strong>Language</strong>: ${repo.language} <br>
-            <strong>Open Issues</strong>: ${repo.open_issues_count} <br>
-            <strong>License</strong>: ${repo.license.name}<br>
-            <strong>Created</strong>: ${isoToDateString(repo.created_at)}<br>
-            <strong>Updated</strong>: ${isoToDateString(repo.updated_at)}
-            `;
-        }
+            return `
+                <strong>Stars</strong>: ${repo.stargazers_count} <br>
+                <strong>Watchers</strong>: ${repo.watchers_count} <br>
+                <strong>Language</strong>: ${repo.language} <br>
+                <strong>Open Issues</strong>: ${repo.open_issues_count} <br>
+                <strong>License</strong>: ${repo.license.name}<br>
+                <strong>Created</strong>: ${isoToDateString(repo.created_at)}<br>
+                <strong>Updated</strong>: ${isoToDateString(repo.updated_at)}
+                `;
+            }
 
         function contributorDetailsHtml(individual_contributor) {
-        return `
-            <li><strong>${individual_contributor.name}</strong></li>
-            <li><strong>Bio:</strong> ${individual_contributor.bio}</li>
-            <li><strong>Public Repos:</strong> ${individual_contributor.public_repos}</li>
-            <li><strong>Followers:</strong> ${individual_contributor.followers}</li>
-            <li><strong>Following:</strong> ${individual_contributor.following}</li>
-                                `;
-        }
+            return `
+                <li><strong>${individual_contributor.name}</strong></li>
+                <li><strong>Bio:</strong> ${individual_contributor.bio}</li>
+                <li><strong>Public Repos:</strong> ${individual_contributor.public_repos}</li>
+                <li><strong>Followers:</strong> ${individual_contributor.followers}</li>
+                <li><strong>Following:</strong> ${individual_contributor.following}</li>
+                `;
+            }
 
         function userHeaderHtml(contributor) {
-        return `
-            <li><a href="${contributor.html_url}" class="login" target="_blank">${contributor.login}</a></li>
-            <img src = "${contributor.avatar_url}" class="avatar">   
-                            `;
-        }
-        $(document).ready(async function() {
-        $.getJSON(repoUrl).done(function(repo) {
-            $('#heading').html(`${repo.name}<hr>`);
-            $('#stats').html(repoStatsHtml(repo));
-        });
-        let contributors = await $.getJSON(`${repoUrl}/contributors`);
+            return `
+                <li><a href="${contributor.html_url}" class="login" target="_blank">${contributor.login}</a></li>
+                <img src = "${contributor.avatar_url}" class="avatar">   
+                                `;
+            }
 
-        for (let contributor of contributors) {
-            let userDetailsElement = $('<ul class="users"></ul>');
-            $('ol#contributors')
-            .append(userHeaderHtml(contributor))
-            .append(userDetailsElement);
-            $.getJSON(contributor.url).then(individual_contributor => {
-            userDetailsElement.append(
-                contributorDetailsHtml(individual_contributor)
-            );
+        $(document).ready(async function() {
+            $.getJSON(repoUrl).done(function(repo) {
+                $('#heading').html(`${repo.name}<hr>`);
+                $('#stats').html(repoStatsHtml(repo));
             });
-        }
+            let contributors = await $.getJSON(`${repoUrl}/contributors`);
+
+            for (let contributor of contributors) {
+                let userDetailsElement = $('<ul class="users"></ul>');
+                $('ol#contributors')
+                .append(userHeaderHtml(contributor))
+                .append(userDetailsElement);
+                $.getJSON(contributor.url).then(individual_contributor => {
+                userDetailsElement.append(
+                    contributorDetailsHtml(individual_contributor)
+                );
+                });
+            }
 
         });
     </script>
